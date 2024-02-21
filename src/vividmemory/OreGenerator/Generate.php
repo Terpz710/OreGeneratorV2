@@ -5,26 +5,20 @@ declare(strict_types=1);
 namespace vividmemory\OreGenerator;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\event\block\BlockPlaceEvent;
-use pocketmine\item\Item;
 use pocketmine\event\Listener;
-use pocketmine\world\World;
-use pocketmine\block\Block;
+use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\block\GlowingObsidian;
 use pocketmine\block\VanillaBlocks;
+use pocketmine\math\Vector3;
 
 class Generate extends PluginBase implements Listener{
 
     public function onEnable(): void {
         $this->getLogger()->info("Plugin OreGenerator by vividmemory! updated by Terpz710...");
-        $this->getServer()->getPluginManager()->registerEvents($this,$this);
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-        public function onBlockSet(BlockPlaceEvent $event){
+    public function onBlockSet(BlockPlaceEvent $event){
         $block = $event->getBlockAgainst();
         $end = false;
         for ($i = 0; $i <= 1; $i++) {
@@ -35,31 +29,32 @@ class Generate extends PluginBase implements Listener{
             if ($end) {
                 $id = mt_rand(1, 60);
                 switch ($id) {
-                    case 2;
+                    case 2:
                         $newBlock = VanillaBlocks::IRON_ORE();
                         break;
-                    case 4;
+                    case 4:
                         $newBlock = VanillaBlocks::GOLD_ORE();
                         break;
-                    case 6;
+                    case 6:
                         $newBlock = VanillaBlocks::EMERALD_ORE();
                         break;
-                    case 8;
+                    case 8:
                         $newBlock = VanillaBlocks::COAL_ORE();
                         break;
-                    case 10;
+                    case 10:
                         $newBlock = VanillaBlocks::REDSTONE_ORE();
                         break;
-                    case 12;
+                    case 12:
                         $newBlock = VanillaBlocks::DIAMOND_ORE();
                         break;
-					case 9;
+                    case 9:
                         $newBlock = VanillaBlocks::LAPIS_LAZULI_ORE();
                         break;
                     default:
                         $newBlock = VanillaBlocks::COBBLESTONE();
                 }
-                $event->getPlayer()->getWorld()->setBlock($block, $newBlock);
+                $newBlockPosition = $nearBlock->getSide(Vector3::SIDE_UP);
+                $event->getPlayer()->getWorld()->setBlock($newBlockPosition, $newBlock);
                 return;
             }
         }
