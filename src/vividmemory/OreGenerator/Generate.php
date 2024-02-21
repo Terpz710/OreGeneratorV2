@@ -36,7 +36,7 @@ class Generate extends PluginBase implements Listener{
                 $id = mt_rand(1, 60);
                 switch ($id) {
                     case 2;
-                        $newBlock = VanillaBlocks::iron_ore;
+                        $newBlock = VanillaBlocks::iron_ore();
                         break;
                     case 4;
                         $newBlock = VanillaBlocks::gold_ore();
