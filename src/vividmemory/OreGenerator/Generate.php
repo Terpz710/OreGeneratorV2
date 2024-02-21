@@ -39,25 +39,25 @@ class Generate extends PluginBase implements Listener{
                         $newBlock = VanillaBlocks::IRON_ORE();
                         break;
                     case 4;
-                        $newBlock = VanillaBlocks::gold_ore();
+                        $newBlock = VanillaBlocks::GOLD_ORE();
                         break;
                     case 6;
-                        $newBlock = VanillaBlocks::emerald_ore();
+                        $newBlock = VanillaBlocks::EMERALD_ORE();
                         break;
                     case 8;
-                        $newBlock = VanillaBlocks::coal_ore();
+                        $newBlock = VanillaBlocks::COAL_ORE();
                         break;
                     case 10;
-                        $newBlock = VanillaBlocks::redstone_ore();
+                        $newBlock = VanillaBlocks::REDSTONE_ORE();
                         break;
                     case 12;
-                        $newBlock = VanillaBlocks::diamond_ore();
+                        $newBlock = VanillaBlocks::DIAMOND_ORE();
                         break;
 					case 9;
-                        $newBlock = VanillaBlocks::lapis_lazuli_ore();
+                        $newBlock = VanillaBlocks::LAPIS_LAZULI_ORE();
                         break;
                     default:
-                        $newBlock = VanillaBlocks::cobblestone();
+                        $newBlock = VanillaBlocks::COBBLESTONE();
                 }
                 $block->getWorld()->setBlock($block, $newBlock, true, false);
                 return;
