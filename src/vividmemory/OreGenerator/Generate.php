@@ -53,7 +53,7 @@ class Generate extends PluginBase implements Listener{
                     default:
                         $newBlock = VanillaBlocks::COBBLESTONE();
                 }
-                $newBlockPosition = $nearBlock->getSide(Vector3::SIDE_UP);
+                $newBlockPosition = $nearBlock->up();
                 $event->getPlayer()->getWorld()->setBlock($newBlockPosition, $newBlock);
                 return;
             }
