@@ -10,6 +10,7 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\block\GlowingObsidian;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\math\Vector3;
+use pocketmine\math\Position;
 
 class Generate extends PluginBase implements Listener{
 
@@ -53,7 +54,7 @@ class Generate extends PluginBase implements Listener{
                     default:
                         $newBlock = VanillaBlocks::COBBLESTONE();
                 }
-                $newBlockPosition = Vector3::up()->add($newBlock);
+                $newBlockPosition = (new Position($block->x, $block->y + 1, $block->z, $block->getWorld()));
                 $event->getPlayer()->getWorld()->setBlock($newBlockPosition, $newBlock);
                 return;
             }
