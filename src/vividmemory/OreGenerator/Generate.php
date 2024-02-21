@@ -19,8 +19,8 @@ use pocketmine\block\VanillaBlocks;
 
 class Generate extends PluginBase implements Listener{
 
-    public function onEnable(){
-        $this->getLogger()->info("Plugin OreGenerator by vividmemory!");
+    public function onEnable(): void {
+        $this->getLogger()->info("Plugin OreGenerator by vividmemory! updated by Terpz710...");
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
     }
 
