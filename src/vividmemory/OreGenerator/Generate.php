@@ -24,7 +24,7 @@ class Generate extends PluginBase implements Listener{
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
     }
 
-        public function onBlockSet(BlockPlaceEvent $event){
+    public function onBlockSet(BlockPlaceEvent $event){
         $block = $event->getBlockAgainst();
         $end = false;
         for ($i = 0; $i <= 1; $i++) {
@@ -53,13 +53,14 @@ class Generate extends PluginBase implements Listener{
                     case 12;
                         $newBlock = VanillaBlocks::DIAMOND_ORE();
                         break;
-					case 9;
+                    case 9;
                         $newBlock = VanillaBlocks::LAPIS_LAZULI_ORE();
                         break;
                     default:
                         $newBlock = VanillaBlocks::COBBLESTONE();
                 }
-                $block->getWorld()->setBlock($block, $newBlock, true, false);
+                $world = $this->getServer()->getWorldManager()->getWorldByName($block->getWorld()->getFolderName());
+                $world->setBlock($block, $newBlock, true, false);
                 return;
             }
         }
